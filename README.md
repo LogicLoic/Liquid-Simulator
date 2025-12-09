@@ -1,4 +1,6 @@
-'''mermaid
+# Liquid Simulator
+
+```mermaid
 ---
 title: Liquid Simulator
 ---
@@ -63,4 +65,4 @@ classDiagram
     Map *-- Pixel
     Emitter --|> Unit
 
-'''
+```
