@@ -8,8 +8,6 @@ class Emitter : public Unit
 public:
     Emitter();
     ~Emitter();
-    void Emitter();
-    void ~Emitter();
     void Emit();
     bool GetAdditional();
 

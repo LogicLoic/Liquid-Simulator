@@ -1,14 +1,12 @@
 #pragma once
 
 #include <vector>
-
+#include "Pixel.hpp"
 class Map
 {
 public:
-    Map();
+    Map(int width, int height);
     ~Map();
-    void Map(int width, int height);
-    void ~Map();
     void Update();
     double GetTotalAmount();
 

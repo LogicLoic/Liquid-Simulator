@@ -8,8 +8,6 @@ class Pixel
 public:
     Pixel();
     ~Pixel();
-    void Pixel();
-    void ~Pixel();
     double GetAmount();
     void SetAmount(double amount);
     std::vector<double> Expand();

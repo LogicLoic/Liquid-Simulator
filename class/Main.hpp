@@ -1,16 +1,16 @@
 #pragma once
 
 #include <vector>
+#include "Map.hpp"
+#include "Unit.hpp"
 
 class Main
 {
 public:
-    Main();
+    Main(int width, int height);
     ~Main();
-    void Main(int width, int height);
-    void ~Main();
-    void Mouse(Event event);
-    void LClick(Event event);
+    //void Mouse(Event event);
+    //void LClick(Event event);
     void NextFrame();
 
 private:
