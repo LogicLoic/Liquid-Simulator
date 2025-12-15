@@ -7,7 +7,7 @@ title: Liquid Simulator
 classDiagram
     class Main{
         -map : Map
-        -units : Unit[]
+        -units : vector<Unit>
 
         +Main(width : int, height : int)
         ~Main()
@@ -19,7 +19,7 @@ classDiagram
     class Map{
         -width : int
         -height : int
-        -pixels : Pixel[][]
+        -pixels : vector<vector<Pixel>>
         
         +Map(width : int, height : int)
         ~Map()
@@ -31,12 +31,15 @@ classDiagram
         -amount : double
         -direction : double
         -color : string
+        -Wall : bool
 
         +Pixel()
         ~Pixel()
         +GetAmount() double
         +SetAmount(amount : double) void
-        +Expand() double[]
+        +Expand() vector<double>
+        +ExpandCalculate() void
+        +IsWall() bool
     }
 
     class Unit{
@@ -45,7 +48,7 @@ classDiagram
 
         +Unit()
         ~Unit()
-        +GetCoords() int[]
+        +GetCoords() vector<int>
     }
 
     class Emitter{
