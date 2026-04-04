@@ -1,10 +1,10 @@
 # Liquid Simulator
 
-```@plantuml
-@startuml
- 
+```mermaid
+---
 title: Liquid Simulator
-
+---
+classDiagram
     class Main{
         -map : Map
         -units : vector<Unit>
@@ -19,7 +19,7 @@ title: Liquid Simulator
     class Map{
         -width : int
         -height : int
-        -pixels : vector<vector<Pixel>>
+        -pixels : vector< vector< Pixel>>
         
         +Map(width : int, height : int)
         ~Map()
@@ -67,5 +67,5 @@ title: Liquid Simulator
     Main *-- Unit
     Map *-- Pixel
     Emitter --|> Unit
-@enduml
+
 ```
