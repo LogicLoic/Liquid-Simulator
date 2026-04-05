@@ -3,7 +3,8 @@
 Map::Map(int width, int height) {}
 Map::~Map() {}
 void Map::Update() {
-    std::vector<std::vector<double>> buffer;
+    /*
+    std::vector<std::vector<double> > buffer;
     static const int dirs[9][2] = {
         {-1,-1}, {-1,0}, {-1,1},
         { 0,-1}, { 0,0}, { 0,1},
@@ -32,7 +33,7 @@ void Map::Update() {
 
     for (int i = 0; i < height; i++)
         for (int j = 0; j < width; j++)
-            pixels[i][j].ApplyBuffer(buffer[i][j]);
+            pixels[i][j].ApplyBuffer(buffer[i][j]);*/
 }
 
 

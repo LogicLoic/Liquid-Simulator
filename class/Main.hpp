@@ -7,7 +7,7 @@
 class Main
 {
 public:
-    Main(int width, int height);
+    Main(unsigned int width, unsigned int height);
     ~Main();
     //void Mouse(Event event);
     //void LClick(Event event);

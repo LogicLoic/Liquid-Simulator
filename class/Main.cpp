@@ -2,9 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
-using namespace std;
-
-Main::Main(int width, int height)
+Main::Main(unsigned int width, unsigned int height)
     : map(width, height)
     {
         units = std::vector<Unit>();
@@ -14,7 +12,7 @@ Main::Main(int width, int height)
             while (auto event = window.pollEvent()) {
                 if (event->is<sf::Event::Closed>()) {
                     window.close();
-                    cout << "Window closed event received." << endl;
+                    std::cout << "Window closed event received." << std::endl;
                 }
             }
             window.clear(sf::Color::Black);
