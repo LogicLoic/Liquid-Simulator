@@ -5,8 +5,6 @@
 Main::Main(unsigned int width, unsigned int height)
     : map(width, height)
     {
-        units = std::vector<Unit>();
-        
         sf::RenderWindow window(sf::VideoMode({width, height}), "SFML Window", sf::State::Windowed);
         while (window.isOpen()) {
             while (auto event = window.pollEvent()) {

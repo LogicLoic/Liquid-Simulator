@@ -69,3 +69,14 @@ classDiagram
     Emitter --|> Unit
 
 ```
+
+## TODO List :
+- [x] Init project
+- [x] Code pixel
+- [ ] Display map
+- [ ] Binding mouse
+- [ ] Animation
+- [ ] Expansion calculations
+- [ ] Multiple liquids management
+- [ ] Creating Units
+- [ ] Save/Load

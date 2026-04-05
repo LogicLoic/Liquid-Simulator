@@ -1,12 +1,22 @@
 #include "Pixel.hpp"
 
 Pixel::Pixel()
-:amount(0.0) {}
+:
+amount(0.0),
+Wall(false),
+neighborCount(0),
+direction(0.0)
+{}
+
 Pixel::~Pixel() {}
 
+
 double Pixel::GetAmount() { return amount; }
+
 void Pixel::SetAmount(double amount) { this->amount = amount; }
+
 std::vector<double> Pixel::Expand() { return expandAmounts; }
+
 void Pixel::ExpandCalculate() {
     //Ignore direction for now
     int n = neighborCount;
@@ -16,5 +26,6 @@ void Pixel::ExpandCalculate() {
         expandAmounts.push_back(distributedAmount);
     }
 }
+
 
 bool Pixel::isWall() { return Wall; }
