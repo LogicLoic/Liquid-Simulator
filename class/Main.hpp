@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <SFML/Graphics.hpp>
 #include "Map.hpp"
 #include "Unit.hpp"
 
@@ -12,6 +13,7 @@ public:
     //void Mouse(Event event);
     //void LClick(Event event);
     void NextFrame();
+    void plot(sf::RenderWindow& window, int x, int y, std::string color);
 
 private:
     Map map;

@@ -1,7 +1,23 @@
 #include "Map.hpp"
 
-Map::Map(int width, int height) {}
+Map::Map(int width, int height)
+:
+width(width),
+height(height)
+{
+    pixels.resize(height);
+    for (int i = 0; i < height; i++) {
+        pixels[i].resize(width);
+        for (int j = 0; j < width; j++) {
+            pixels[i][j] = Pixel();
+        }
+    }
+}
+
+
 Map::~Map() {}
+
+
 void Map::Update() {
     /*
     std::vector<std::vector<double> > buffer;
@@ -46,4 +62,9 @@ double Map::GetTotalAmount() {
         }
     }
     return sum;
+}
+
+
+const std::vector<std::vector<Pixel> >& Map::GetPixels() const {
+    return pixels;
 }

@@ -1,5 +1,4 @@
 #include "Main.hpp"
-#include <SFML/Graphics.hpp>
 #include <iostream>
 
 Main::Main(unsigned int width, unsigned int height)
@@ -14,11 +13,35 @@ Main::Main(unsigned int width, unsigned int height)
                 }
             }
             window.clear(sf::Color::Black);
+
+            plot(window, 100, 100, "red");
+
             window.display();
         }
 }
 
 Main::~Main() {}
+
+void Main::NextFrame() {
+    for (auto line : map.GetPixels()) {
+        for (auto pixel : line) {
+            std::cout << pixel.GetAmount() << " ";
+        }
+        std::cout << std::endl;
+    }
+}
+
+void Main::plot(sf::RenderWindow& window, int x, int y, std::string color) {
+    sf::Color c = sf::Color::White;
+    if (color == "red") c = sf::Color::Red;
+    else if (color == "blue") c = sf::Color::Blue;
+
+    sf::VertexArray point(sf::PrimitiveType::Points, 1);
+    point[0].position = sf::Vector2f(x, y);
+    point[0].color = c;
+
+    window.draw(point);
+}
+
 //void Main::Mouse(Event event) {}
 //void Main::LClick(Event event) {}
-void Main::NextFrame() {}

@@ -9,6 +9,7 @@ public:
     ~Map();
     void Update();
     double GetTotalAmount();
+    const std::vector<std::vector<Pixel> >& GetPixels() const;
 
 private:
     int width;
