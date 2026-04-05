@@ -14,6 +14,7 @@ classDiagram
         +Mouse(event : Event) void
         +LClick(event : Event) void
         +NextFrame() void
+        +Plot() void
     }
 
     class Map{
@@ -25,6 +26,7 @@ classDiagram
         ~Map()
         +Update() void
         +GetTotalAmount() double
+        +GetPixels() vector< vector< Pixel>>
     }
 
     class Pixel{
@@ -73,6 +75,7 @@ classDiagram
 ## TODO List :
 - [x] Init project
 - [x] Code pixel
+- [x] Can draw on window
 - [ ] Display map
 - [ ] Binding mouse
 - [ ] Animation

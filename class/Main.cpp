@@ -14,7 +14,7 @@ Main::Main(unsigned int width, unsigned int height)
             }
             window.clear(sf::Color::Black);
 
-            plot(window, 100, 100, "red");
+            Plot(window, 100, 100, "red");
 
             window.display();
         }
@@ -31,7 +31,7 @@ void Main::NextFrame() {
     }
 }
 
-void Main::plot(sf::RenderWindow& window, int x, int y, std::string color) {
+void Main::Plot(sf::RenderWindow& window, int x, int y, std::string color) {
     sf::Color c = sf::Color::White;
     if (color == "red") c = sf::Color::Red;
     else if (color == "blue") c = sf::Color::Blue;
