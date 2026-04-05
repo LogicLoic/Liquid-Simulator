@@ -12,8 +12,10 @@ Pixel::~Pixel() {}
 
 
 double Pixel::GetAmount() { return amount; }
-
 void Pixel::SetAmount(double amount) { this->amount = amount; }
+
+sf::Color Pixel::GetColor() { return color; }
+void Pixel::SetColor(sf::Color color) { this->color = color; }
 
 std::vector<double> Pixel::Expand() { return expandAmounts; }
 

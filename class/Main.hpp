@@ -13,7 +13,7 @@ public:
     //void Mouse(Event event);
     //void LClick(Event event);
     void NextFrame();
-    void Plot(sf::RenderWindow& window, int x, int y, std::string color);
+    void Plot(sf::RenderWindow& window, int x, int y, sf::Color color);
 
 private:
     Map map;

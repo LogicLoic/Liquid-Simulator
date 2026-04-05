@@ -2,7 +2,7 @@
 
 #include <string>
 #include "Unit.hpp"
-
+#include <SFML/Graphics.hpp>
 class Emitter : public Unit
 {
 public:
@@ -15,5 +15,5 @@ private:
     double amount;
     double interval;
     bool additional;
-    std::string color;
+    sf::Color color;
 };

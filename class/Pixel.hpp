@@ -2,7 +2,7 @@
 
 #include <string>
 #include <vector>
-
+#include <SFML/Graphics.hpp>
 class Pixel
 {
 public:
@@ -10,14 +10,15 @@ public:
     ~Pixel();
     double GetAmount();
     void SetAmount(double amount);
+    sf::Color GetColor();
+    void SetColor(sf::Color color);
     std::vector<double> Expand();
     void ExpandCalculate();
     bool isWall();
-
 private:
     double amount;
     double direction;
-    std::string color;
+    sf::Color color;
     std::vector<double> expandAmounts;
     int neighborCount;
     bool Wall;

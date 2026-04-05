@@ -14,7 +14,7 @@ Main::Main(unsigned int width, unsigned int height)
             }
             window.clear(sf::Color::Black);
 
-            Plot(window, 100, 100, "red");
+            Plot(window, 100, 100, sf::Color::Red);
 
             window.display();
         }
@@ -31,14 +31,10 @@ void Main::NextFrame() {
     }
 }
 
-void Main::Plot(sf::RenderWindow& window, int x, int y, std::string color) {
-    sf::Color c = sf::Color::White;
-    if (color == "red") c = sf::Color::Red;
-    else if (color == "blue") c = sf::Color::Blue;
-
+void Main::Plot(sf::RenderWindow& window, int x, int y, sf::Color color) {
     sf::VertexArray point(sf::PrimitiveType::Points, 1);
     point[0].position = sf::Vector2f(x, y);
-    point[0].color = c;
+    point[0].color = color;
 
     window.draw(point);
 }

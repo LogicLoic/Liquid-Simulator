@@ -9,12 +9,12 @@ classDiagram
         -map : Map
         -units : vector<Unit>
 
-        +Main(width : int, height : int)
+        +Main(width : unsigned int, height : unsigned int)
         ~Main()
         +Mouse(event : Event) void
         +LClick(event : Event) void
         +NextFrame() void
-        +Plot() void
+        +Plot(window : sf::RenderWindow, x : int, y : int, color : sf::Color) void
     }
 
     class Map{
@@ -32,13 +32,15 @@ classDiagram
     class Pixel{
         -amount : double
         -direction : double
-        -color : string
+        -color : sf::Color
         -Wall : bool
 
         +Pixel()
         ~Pixel()
         +GetAmount() double
         +SetAmount(amount : double) void
+        +GetColor() sf::Color
+        +SetColor(color : sf::Color) void
         +Expand() vector<double>
         +ExpandCalculate() void
         +IsWall() bool
@@ -57,7 +59,7 @@ classDiagram
         -amount : double
         -interval : double
         -additional : bool
-        -color : string
+        -color : sf::Color
 
         +Emitter()
         ~Emitter()
