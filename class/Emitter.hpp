@@ -9,7 +9,7 @@ public:
     Emitter();
     ~Emitter();
     void Emit();
-    bool GetAdditional();
+    bool GetAdditional() { return additional; }
 
 private:
     double amount;

@@ -13,8 +13,7 @@ classDiagram
         ~Main()
         +Mouse(event : Event) void
         +LClick(event : Event) void
-        +NextFrame() void
-        +Plot(window : sf::RenderWindow, x : int, y : int, color : sf::Color) void
+        +NextFrame(window : sf::RenderWindow) void
     }
 
     class Map{

@@ -10,15 +10,6 @@ direction(0.0)
 
 Pixel::~Pixel() {}
 
-
-double Pixel::GetAmount() { return amount; }
-void Pixel::SetAmount(double amount) { this->amount = amount; }
-
-sf::Color Pixel::GetColor() { return color; }
-void Pixel::SetColor(sf::Color color) { this->color = color; }
-
-std::vector<double> Pixel::Expand() { return expandAmounts; }
-
 void Pixel::ExpandCalculate() {
     //Ignore direction for now
     int n = neighborCount;
@@ -29,5 +20,3 @@ void Pixel::ExpandCalculate() {
     }
 }
 
-
-bool Pixel::isWall() { return Wall; }

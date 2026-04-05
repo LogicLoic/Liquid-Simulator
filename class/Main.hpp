@@ -12,9 +12,7 @@ public:
     ~Main();
     //void Mouse(Event event);
     //void LClick(Event event);
-    void NextFrame();
-    void Plot(sf::RenderWindow& window, int x, int y, sf::Color color);
-
+    void NextFrame(sf::RenderWindow& window);
 private:
     Map map;
     std::vector<Unit> units;

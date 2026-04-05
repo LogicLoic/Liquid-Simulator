@@ -7,9 +7,11 @@ class Map
 public:
     Map(int width, int height);
     ~Map();
+    int GetWidth() { return width; }
+    int GetHeight() { return height; }
     void Update();
     double GetTotalAmount();
-    const std::vector<std::vector<Pixel> >& GetPixels() const;
+    std::vector<std::vector<Pixel> >& GetPixels() { return pixels; }
 
 private:
     int width;

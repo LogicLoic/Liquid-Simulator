@@ -63,8 +63,3 @@ double Map::GetTotalAmount() {
     }
     return sum;
 }
-
-
-const std::vector<std::vector<Pixel> >& Map::GetPixels() const {
-    return pixels;
-}

@@ -14,7 +14,9 @@ Main::Main(unsigned int width, unsigned int height)
             }
             window.clear(sf::Color::Black);
 
-            Plot(window, 100, 100, sf::Color::Red);
+            map.GetPixels()[100][100].SetColor(sf::Color::Red);
+
+            NextFrame(window);
 
             window.display();
         }
@@ -22,21 +24,20 @@ Main::Main(unsigned int width, unsigned int height)
 
 Main::~Main() {}
 
-void Main::NextFrame() {
-    for (auto line : map.GetPixels()) {
-        for (auto pixel : line) {
-            std::cout << pixel.GetAmount() << " ";
+void Main::NextFrame(sf::RenderWindow& window) {
+    sf::VertexArray vertices(sf::PrimitiveType::Points, map.GetHeight() * map.GetWidth());
+    const auto& pixels = map.GetPixels();
+    size_t idx = 0;
+
+    for (size_t y = 0; y < pixels.size(); ++y) {
+        for (size_t x = 0; x < pixels[y].size(); ++x) {
+            vertices[idx].position = sf::Vector2f(x, y);
+            vertices[idx].color = pixels[y][x].GetColor();
+            idx++;
         }
-        std::cout << std::endl;
     }
-}
 
-void Main::Plot(sf::RenderWindow& window, int x, int y, sf::Color color) {
-    sf::VertexArray point(sf::PrimitiveType::Points, 1);
-    point[0].position = sf::Vector2f(x, y);
-    point[0].color = color;
-
-    window.draw(point);
+    window.draw(vertices);
 }
 
 //void Main::Mouse(Event event) {}

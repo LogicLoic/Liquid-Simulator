@@ -7,7 +7,7 @@ class Unit
 public:
     Unit();
     virtual ~Unit();
-    std::vector<int> GetCoords();
+    std::vector<int> GetCoords() const { return {x, y}; }
 
 private:
     int x;
