@@ -77,8 +77,8 @@ classDiagram
 - [x] Init project
 - [x] Code pixel
 - [x] Can draw on window
-- [ ] Display map
-- [ ] Binding mouse
+- [x] Display map
+- [x] Binding mouse
 - [ ] Animation
 - [ ] Expansion calculations
 - [ ] Multiple liquids management
