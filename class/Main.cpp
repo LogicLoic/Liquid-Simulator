@@ -4,7 +4,7 @@
 Main::Main(unsigned int width, unsigned int height)
     : map(width, height)
     {
-        sf::RenderWindow window(sf::VideoMode({width, height}), "SFML Window", sf::State::Windowed);
+        sf::RenderWindow window(sf::VideoMode({width, height}), "Liquid Simulator", sf::State::Windowed);
         Loop(window, width, height);
 }
 
@@ -52,10 +52,27 @@ void Main::Event(sf::RenderWindow&window, bool& isDragging) {
 
 void Main::Loop(sf::RenderWindow& window, unsigned int width, unsigned int height) {
     bool isDragging = false;
+
+    sf::Clock clock;
+    int frameCount = 0;
+    float timer = 0.0f;
+
     while (window.isOpen()) {
         Event(window, isDragging);
 
+        float deltaTime = clock.restart().asSeconds();
+        timer += deltaTime;
+        frameCount++;
+
         window.clear(sf::Color::Black);
+
+        if (timer >= 1.0f) {
+            int fps = frameCount;
+            window.setTitle("Liquid Simulator - FPS: " + std::to_string(fps));
+
+            frameCount = 0;
+            timer = 0.0f;
+        }
 
         if (isDragging) {
             sf::Vector2i pos = sf::Mouse::getPosition(window);
