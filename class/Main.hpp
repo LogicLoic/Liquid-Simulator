@@ -10,9 +10,9 @@ class Main
 public:
     Main(unsigned int width, unsigned int height);
     ~Main();
-    //void Mouse(Event event);
-    //void LClick(Event event);
     void NextFrame(sf::RenderWindow& window);
+    void Event(sf::RenderWindow&window, bool& isDragging);
+    void Loop(sf::RenderWindow& window, unsigned int width, unsigned int height);
 private:
     Map map;
     std::vector<Unit> units;

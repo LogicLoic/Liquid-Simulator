@@ -11,9 +11,9 @@ classDiagram
 
         +Main(width : unsigned int, height : unsigned int)
         ~Main()
-        +Mouse(event : Event) void
-        +LClick(event : Event) void
         +NextFrame(window : sf::RenderWindow) void
+        +Event(window : sf::RenderWindow, isDragging : bool)
+        +Loop(window : sf::RenderWindow, width : unsigned int, height : unsigned int)
     }
 
     class Map{

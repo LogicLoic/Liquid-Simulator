@@ -1,6 +1,6 @@
 #include "class/Main.hpp"
 
 int main() {
-    Main *main = new Main(800, 600);
+    Main *main = new Main(1200, 800);
     return 0;
 }
