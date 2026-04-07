@@ -7,7 +7,7 @@ title: Liquid Simulator
 classDiagram
     class Main{
         -map : Map
-        -units : vector<Unit>
+        -brush : Brush
 
         +Main(width : unsigned int, height : unsigned int)
         ~Main()
@@ -20,6 +20,7 @@ classDiagram
         -width : int
         -height : int
         -pixels : vector< vector< Pixel>>
+        -units : vector< Unit>
         
         +Map(width : int, height : int)
         ~Map()
@@ -66,9 +67,32 @@ classDiagram
         +GetAdditional() bool
     }
 
+    class Brush{
+        -amount : double
+        -color : sf::Color
+        -type : BrushType
+
+        +Brush()
+        ~Brush()
+        +RefreshInfos() void
+        +GetAmount() double
+        +GetColor() sf::Color
+        +GetType() BrushType
+    } 
+
+    class BrushType{
+        <<enumeration>>
+        Liquid,
+        Wall,
+        Erase,
+        Emitter
+    }
+
     Main *-- Map
-    Main *-- Unit
+    Map *-- Unit
+    Main *-- Brush
     Map *-- Pixel
+    Brush --> BrushType
     Emitter --|> Unit
 
 ```
