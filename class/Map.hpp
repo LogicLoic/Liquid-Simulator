@@ -18,5 +18,6 @@ private:
     int width;
     int height;
     std::vector<std::vector<Pixel> > pixels;
+    std::vector<std::vector<Pixel>> pixels_next;
     std::vector<Unit> units;
 };

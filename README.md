@@ -103,8 +103,8 @@ classDiagram
 - [x] Can draw on window
 - [x] Display map
 - [x] Binding mouse
-- [ ] Animation
-- [ ] Expansion calculations
+- [x] Animation
+- [x] Expansion calculations
 - [ ] Brush & Global Panels
 - [ ] Multiple liquids management
 - [ ] Creating Units
