@@ -2,6 +2,7 @@
 
 #include <vector>
 #include "Pixel.hpp"
+#include "Unit.hpp"
 class Map
 {
 public:
@@ -17,4 +18,5 @@ private:
     int width;
     int height;
     std::vector<std::vector<Pixel> > pixels;
+    std::vector<Unit> units;
 };

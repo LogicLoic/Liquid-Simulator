@@ -81,7 +81,7 @@ void Main::Loop(sf::RenderWindow& window, unsigned int width, unsigned int heigh
             int y = pos.y;
 
             if (x >= 0 && x < width && y >= 0 && y < height) {
-                map.GetPixels()[y][x].SetColor(sf::Color::Red);
+                map.GetPixels()[y][x].SetColor(brush.GetColor());
             }
         }
 

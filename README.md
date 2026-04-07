@@ -74,7 +74,7 @@ classDiagram
 
         +Brush()
         ~Brush()
-        +RefreshInfos() void
+        +RefreshInfos(amount : double, color : sf::Color, type : BrushType) void
         +GetAmount() double
         +GetColor() sf::Color
         +GetType() BrushType
@@ -105,6 +105,7 @@ classDiagram
 - [x] Binding mouse
 - [ ] Animation
 - [ ] Expansion calculations
+- [ ] Brush & Global Panels
 - [ ] Multiple liquids management
 - [ ] Creating Units
 - [ ] Save/Load

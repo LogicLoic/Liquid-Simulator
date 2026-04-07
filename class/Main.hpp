@@ -3,8 +3,7 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 #include "Map.hpp"
-#include "Unit.hpp"
-
+#include "Brush.hpp"
 class Main
 {
 public:
@@ -15,5 +14,5 @@ public:
     void Loop(sf::RenderWindow& window, unsigned int width, unsigned int height);
 private:
     Map map;
-    std::vector<Unit> units;
+    Brush brush;
 };
