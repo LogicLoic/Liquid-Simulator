@@ -40,7 +40,7 @@ classDiagram
         +GetAmount() double
         +SetAmount(amount : double) void
         +GetColor() sf::Color
-        +SetColor(color : sf::Color) void
+        +SetColor(color : sf::Color, transparency : double) void
         +Expand() vector<double>
         +ExpandCalculate() void
         +IsWall() bool

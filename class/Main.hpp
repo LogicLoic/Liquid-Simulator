@@ -15,4 +15,5 @@ public:
 private:
     Map map;
     Brush brush;
+    double maxAmount = 1000.0;
 };

@@ -13,7 +13,7 @@ public:
     void SetAmount(double amount) { this->amount = amount; }
 
     sf::Color GetColor() const { return color; }
-    void SetColor(sf::Color color) { this->color = color; }
+    void SetColor(sf::Color color, double transparency) { this->color = sf::Color(color.r, color.g, color.b, transparency); }
 
     std::vector<double> Expand() const { return expandAmounts; }
 

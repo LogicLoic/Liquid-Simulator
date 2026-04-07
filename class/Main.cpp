@@ -14,6 +14,7 @@ void Main::NextFrame(sf::RenderWindow& window) {
     sf::VertexArray vertices(sf::PrimitiveType::Points, map.GetHeight() * map.GetWidth());
     const auto& pixels = map.GetPixels();
     size_t idx = 0;
+    double transparency;
 
     for (size_t y = 0; y < pixels.size(); ++y) {
         for (size_t x = 0; x < pixels[y].size(); ++x) {
@@ -81,10 +82,13 @@ void Main::Loop(sf::RenderWindow& window, unsigned int width, unsigned int heigh
             int y = pos.y;
 
             if (x >= 0 && x < width && y >= 0 && y < height) {
-                map.GetPixels()[y][x].SetColor(brush.GetColor());
+                map.GetPixels()[y][x].SetAmount(brush.GetAmount());
+                double transparency = (brush.GetAmount() / maxAmount) * 255.0;
+                if (transparency > 255.0) transparency = 255.0;
+                map.GetPixels()[y][x].SetColor(brush.GetColor(), transparency);
             }
         }
-
+        map.Update();
         NextFrame(window);
         window.display();
     }

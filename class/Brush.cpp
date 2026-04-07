@@ -1,7 +1,7 @@
 #include "Brush.hpp"
 
 Brush::Brush() :
-amount(1000.0), color(sf::Color(0, 255, 255, 255)), type(BrushType::Liquid) 
+amount(1000000.0), color(sf::Color(0, 255, 255)), type(BrushType::Liquid) 
 {}
 
 Brush::~Brush() {}
