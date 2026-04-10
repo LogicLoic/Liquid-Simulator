@@ -11,7 +11,8 @@ public:
     ~Main();
     void NextFrame(sf::RenderWindow& window);
     void Event(sf::RenderWindow&window, bool& isDragging);
-    void Loop(sf::RenderWindow& window, unsigned int width, unsigned int height);
+    void Loop(sf::RenderWindow& window, unsigned int width, unsigned int height, int panelWidth);
+    void DrawUI(sf::RenderWindow& window, unsigned int width, unsigned int height, int panelWidth);
 private:
     Map map;
     Brush brush;

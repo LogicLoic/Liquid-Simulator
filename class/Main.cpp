@@ -4,8 +4,13 @@
 Main::Main(unsigned int width, unsigned int height)
     : map(width, height)
     {
-        sf::RenderWindow window(sf::VideoMode({width, height}), "Liquid Simulator", sf::State::Windowed);
-        Loop(window, width, height);
+        int panelWidth = width /4;
+        sf::RenderWindow window(
+            sf::VideoMode({width + panelWidth, height}),
+            "Liquid Simulator",
+            sf::State::Windowed
+        );
+        Loop(window, width, height, panelWidth);
 }
 
 Main::~Main() {}
@@ -27,6 +32,13 @@ void Main::NextFrame(sf::RenderWindow& window) {
     window.draw(vertices);
 }
 
+void Main::DrawUI(sf::RenderWindow& window, unsigned int width, unsigned int height, int panelWidth) {
+    sf::RectangleShape panel(sf::Vector2f(panelWidth, height));
+    panel.setPosition(sf::Vector2f(width, 0));
+    panel.setFillColor(sf::Color(50, 50, 50)); // gris
+
+    window.draw(panel);
+}
 
 void Main::Event(sf::RenderWindow&window, bool& isDragging) {
     while (auto event = window.pollEvent()) {
@@ -51,7 +63,7 @@ void Main::Event(sf::RenderWindow&window, bool& isDragging) {
     }
 }
 
-void Main::Loop(sf::RenderWindow& window, unsigned int width, unsigned int height) {
+void Main::Loop(sf::RenderWindow& window, unsigned int width, unsigned int height, int panelWidth) {
     bool isDragging = false;
 
     sf::Clock clock;
@@ -78,18 +90,21 @@ void Main::Loop(sf::RenderWindow& window, unsigned int width, unsigned int heigh
         if (isDragging) {
             sf::Vector2i pos = sf::Mouse::getPosition(window);
 
-            int x = pos.x;
-            int y = pos.y;
+            if (pos.x < width) {
+                int x = pos.x;
+                int y = pos.y;
 
-            if (x >= 0 && x < width && y >= 0 && y < height) {
-                map.GetPixels()[y][x].SetAmount(brush.GetAmount());
-                double transparency = (brush.GetAmount() / maxAmount) * 255.0;
-                if (transparency > 255.0) transparency = 255.0;
-                map.GetPixels()[y][x].SetColor(brush.GetColor(), transparency);
+                if (y >= 0 && y < height) {
+                    map.GetPixels()[y][x].SetAmount(brush.GetAmount());
+                    double transparency = (brush.GetAmount() / maxAmount) * 255.0;
+                    if (transparency > 255.0) transparency = 255.0;
+                    map.GetPixels()[y][x].SetColor(brush.GetColor(), transparency);
+                }
             }
         }
         map.Update();
         NextFrame(window);
+        DrawUI(window, width, height, panelWidth);
         window.display();
     }
 }
