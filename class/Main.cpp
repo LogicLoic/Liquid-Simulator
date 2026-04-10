@@ -10,7 +10,8 @@ Main::Main(unsigned int width, unsigned int height)
             "Liquid Simulator",
             sf::State::Windowed
         );
-        Loop(window, width, height, panelWidth);
+        panel.UpdateLayout(window);
+        Loop(window, width, height);
 }
 
 Main::~Main() {}
@@ -30,14 +31,6 @@ void Main::NextFrame(sf::RenderWindow& window) {
     }
 
     window.draw(vertices);
-}
-
-void Main::DrawUI(sf::RenderWindow& window, unsigned int width, unsigned int height, int panelWidth) {
-    sf::RectangleShape panel(sf::Vector2f(panelWidth, height));
-    panel.setPosition(sf::Vector2f(width, 0));
-    panel.setFillColor(sf::Color(50, 50, 50)); // gris
-
-    window.draw(panel);
 }
 
 void Main::Event(sf::RenderWindow&window, bool& isDragging) {
@@ -63,7 +56,7 @@ void Main::Event(sf::RenderWindow&window, bool& isDragging) {
     }
 }
 
-void Main::Loop(sf::RenderWindow& window, unsigned int width, unsigned int height, int panelWidth) {
+void Main::Loop(sf::RenderWindow& window, unsigned int width, unsigned int height) {
     bool isDragging = false;
 
     sf::Clock clock;
@@ -90,7 +83,7 @@ void Main::Loop(sf::RenderWindow& window, unsigned int width, unsigned int heigh
         if (isDragging) {
             sf::Vector2i pos = sf::Mouse::getPosition(window);
 
-            if (pos.x < width) {
+            if (!panel.IsInside(pos.x)) {
                 int x = pos.x;
                 int y = pos.y;
 
@@ -104,7 +97,7 @@ void Main::Loop(sf::RenderWindow& window, unsigned int width, unsigned int heigh
         }
         map.Update();
         NextFrame(window);
-        DrawUI(window, width, height, panelWidth);
+        panel.Draw(window);
         window.display();
     }
 }

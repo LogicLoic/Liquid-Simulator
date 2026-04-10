@@ -88,10 +88,23 @@ classDiagram
         Emitter
     }
 
+    class Panel{
+        -background : sf::RectangleShape
+        -width : float
+        -float : xOffset
+
+        +Panel()
+        ~Panel()
+        +UpdateLayout(window : sf::RenderWindow) void
+        +Draw(window : sf::RenderWindow) void
+        +IsInside(x : int) bool
+    }
+
     Main *-- Map
     Map *-- Unit
     Main *-- Brush
     Map *-- Pixel
+    Main *-- Panel
     Brush --> BrushType
     Emitter --|> Unit
 

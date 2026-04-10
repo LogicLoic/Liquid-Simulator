@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include "Map.hpp"
 #include "Brush.hpp"
+#include "Panel.hpp"
 class Main
 {
 public:
@@ -11,10 +12,10 @@ public:
     ~Main();
     void NextFrame(sf::RenderWindow& window);
     void Event(sf::RenderWindow&window, bool& isDragging);
-    void Loop(sf::RenderWindow& window, unsigned int width, unsigned int height, int panelWidth);
-    void DrawUI(sf::RenderWindow& window, unsigned int width, unsigned int height, int panelWidth);
+    void Loop(sf::RenderWindow& window, unsigned int width, unsigned int height);
 private:
     Map map;
     Brush brush;
+    Panel panel;
     double maxAmount = 1000.0;
 };
